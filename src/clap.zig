@@ -13,7 +13,7 @@ const ExportFunctions = struct {
 };
 
 fn castPluginType(comptime PluginType: type, plugin_data: *anyopaque) *PluginType {
-    return @as(*PluginType, @ptrCast(@alignCast(@alignOf(PluginType), plugin_data)));
+    return @as(*PluginType, @ptrCast(@alignCast(plugin_data)));
 }
 
 fn PluginStub(comptime PluginType: type) type {
